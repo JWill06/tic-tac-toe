@@ -16,25 +16,12 @@ var previousWinner;
 var player1 = createPlayer('player1', '🌮')
 var player2 = createPlayer('player2', '🌯')
 
-
-
-
-
 ///event listeners
-boxes.forEach(box => {
-    box.addEventListener('click', boxClick)
+for(var i = 0; i < boxes.length; i++){
+    boxes[i].addEventListener('click', boxClick)
+}
 
-})
-
-
-
-
-/////logic functions
-function makeMove(row, col, player) {
-    board[row][col] = player;
-   }
-   
-
+// /////logic functions
 function checkWin(player) {
     for (var i = 0; i < 3; i++) {
         if (board[i][0] === player && board[i][1] === player && board[i][2] === player) return true;
@@ -43,6 +30,7 @@ function checkWin(player) {
     if (board[0][0] === player && board[1][1] === player && board[2][2] === player) return true;
     if (board[0][2] === player && board[1][1] === player && board[2][0] === player) return true;
 }
+
 function checkDraw() {
     for (var row = 0; row < 3; row++) {
         for (var col = 0; col < 3; col++) {
@@ -52,7 +40,65 @@ function checkDraw() {
     return true;
 }
    
-
-
-
 /////DOM functions
+function createPlayer(name, token){
+    return {
+        id: name,
+        token: token,
+        wins: 0,
+    }
+}
+
+function boxClick(event) {
+    var boxId = event.target.id;
+    var number = parseInt(boxId.slice(-1));
+    var row = Math.floor((number - 1) / 3);
+    var col = (number - 1) % 3;
+    if (board[row][col] === '') {
+        board[row][col] = currentPlayer;
+        event.target.textContent = currentPlayer;
+        if (checkWin(currentPlayer)) {
+            if(currentPlayer === player1.token){
+                player1.wins++
+            } else if (currentPlayer === player2.token){
+                player2.wins++
+            }
+            previousWinner = currentPlayer;
+            header.innerHTML = `<h1>Player ${currentPlayer} wins!</h1>`;
+            increaseWins();
+            setTimeout(resetGame, 2000); 
+        } else if (checkDraw()) {
+            previousWinner = null;
+            header.innerHTML = `<h1>It's a draw!</h1>`;
+            setTimeout(resetGame, 2000); 
+        } else {
+            currentPlayer = currentPlayer === '🌮' ? '🌯' : '🌮';
+            currentPlayerTurn();
+        }
+    }
+}
+
+function increaseWins() {
+    document.querySelector('.player-one-wins').textContent = `${player1.wins} Wins`;
+    document.querySelector('.player-two-wins').textContent = `${player2.wins} Wins`;
+}
+
+function resetGame(){
+    board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+    ];
+    currentPlayer = previousWinner === '🌮' ? '🌯' : '🌮';
+    
+    for(var i = 0; i < boxes.length; i++){
+        boxes[i].textContent = ''; 
+        boxes[i].classList.remove('win'); 
+    }
+    currentPlayerTurn();
+    increaseWins();
+}
+
+function currentPlayerTurn(){
+   header.innerHTML = `<h1 class="">Player ${currentPlayer}'s turn!</h1>`
+}
