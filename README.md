@@ -1,10 +1,10 @@
-# tic-tac-toe
+# Tic-Tac-Toe
 
 
 ### Abstract:
 The goal of this project was to create an application that allows the user to play Tic Tac Toe. The user can start out as one character and then once that character picks a spot on the grid the next character can go. Once each round is over the winner is displayed at the top and then their win total goes up on that characters side. After the round is over the next game the opposite character will go first. The entire page will only reset if you refresh the page. If a draw happens no one will get the point and the game will refresh. 
 
-### Installation Instrucitons: 
+### Installation Instructions: 
 1. Fork the repo from https://github.com/JWill06/tic-tac-toe
 2. Clone down the file into your local machine.
 3. Access that new directory.
