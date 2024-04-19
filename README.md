@@ -12,6 +12,7 @@ The goal of this project was to create an application that allows the user to pl
 
 
 ### Preview of Application: 
+![Screenshot 2024-04-19 at 3 39 37 PM](https://github.com/JWill06/tic-tac-toe/assets/127267694/22726ef0-0567-446f-93f0-1d167bedf096)
 
 
 
