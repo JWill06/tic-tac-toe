@@ -1,9 +1,12 @@
 body {
     font-family: sans-serif;
-    display: flex;
-    height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
 }
 
 .first-player-section,
@@ -35,9 +38,9 @@ body {
     grid-template-rows: repeat(3, 1fr);
     justify-content: center;
     align-content: center;
-    margin-top: 12rem;
+    margin-top: 10rem;
 }
-   
+
 .box {
     width: 100px;
     height: 100px;
@@ -46,11 +49,18 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 40px;
 }
 
-h1 {
+.player-one,
+.player-two {
     margin-top: 6rem;
-    font-size: 40px; 
+    font-size: 60px; 
+}
+
+.current-header {
+    font-size: 40px;
+    margin-top: 6rem;
 }
 
 #box-1, 
@@ -58,7 +68,6 @@ h1 {
 #box-3 {
     border-left: none;
 }
-
 #box-1,
 #box-4,
 #box-7 {
