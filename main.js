@@ -34,7 +34,8 @@ function checkWin(player) {
 function checkDraw() {
     for (var row = 0; row < 3; row++) {
         for (var col = 0; col < 3; col++) {
-            if (board[row][col] === '') return false;
+            if (board[row][col] === '') 
+            return false;
         }
     }
     return true;
