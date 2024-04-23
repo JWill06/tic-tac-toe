@@ -66,11 +66,13 @@ function boxClick(event) {
             }
             previousWinner = currentPlayer;
             header.innerHTML = `<h1>Player ${currentPlayer} wins!</h1>`;
+            disableClicks();
             increaseWins();
             setTimeout(resetGame, 2000); 
         } else if (checkDraw()) {
             previousWinner = null;
             header.innerHTML = `<h1>It's a draw!</h1>`;
+            disableClicks();
             setTimeout(resetGame, 2000); 
         } else {
             currentPlayer = currentPlayer === '🌮' ? '🌯' : '🌮';
@@ -82,6 +84,12 @@ function boxClick(event) {
 function increaseWins() {
     document.querySelector('.player-one-wins').textContent = `${player1.wins} Wins`;
     document.querySelector('.player-two-wins').textContent = `${player2.wins} Wins`;
+}
+
+function disableClicks(){
+    for(var i = 0; i < boxes.length; i++){
+        boxes[i].removeEventListener('click', boxClick)
+    }
 }
 
 function resetGame(){
@@ -98,6 +106,10 @@ function resetGame(){
     }
     currentPlayerTurn();
     increaseWins();
+
+    for(var i = 0; i < boxes.length; i++){
+        boxes[i].addEventListener('click', () => boxClick())
+    }
 }
 
 function currentPlayerTurn(){
