@@ -108,7 +108,7 @@ function resetGame(){
     increaseWins();
 
     for(var i = 0; i < boxes.length; i++){
-        boxes[i].addEventListener('click', () => boxClick())
+        boxes[i].addEventListener('click', boxClick)
     }
 }
 
