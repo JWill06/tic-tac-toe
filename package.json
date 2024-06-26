@@ -5,28 +5,27 @@
     "main": "main.js",
     "homepage": "http://JWILL06.github.io/tic-tac-toe",
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/JWILL06/tic-tac-toe.git"
+        "type": "git",
+        "url": "git+https://github.com/JWILL06/tic-tac-toe.git"
     },
     "scripts": {
-      "start": "webpack server",
-      "build": "webpack",
-      "predeploy": "npm run build",
-      "deploy": "gh-pages -d dist"
+        "start": "webpack server",
+        "build": "webpack",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "author": "Jordan Williamson",
     "dependencies": {
-      "css-loader": "^6.10.0",
-      "file-loader": "^6.2.0",
-      "html-loader": "^5.0.0",
-      "style-loader": "^3.3.4",
-      "webpack-dev-server": "^4.15.1"
+        "css-loader": "^6.10.0",
+        "file-loader": "^6.2.0",
+        "html-loader": "^5.0.0",
+        "style-loader": "^3.3.4",
+        "webpack-dev-server": "^4.15.1"
     },
     "devDependencies": {
-      "gh-pages": "^6.1.1",
-      "html-webpack-plugin": "^5.6.0",
-      "webpack": "^5.90.0",
-      "webpack-cli": "^5.1.4"
+        "gh-pages": "^6.1.1",
+        "html-webpack-plugin": "^5.6.0",
+        "webpack": "^5.90.0",
+        "webpack-cli": "^5.1.4"
     }
-  }
-  
+}
